@@ -53,7 +53,12 @@
                     {
                         label: 'Adquisiciones por mes',
                         data: data.map(row => row.count),
-                        backgroundColor: ["#000000", "skyblue", "green", "blue", "orange", "blue","gray"], 
+                        backgroundColor: ["gray"], 
+                    },{
+                        label: 'Adquisiciones por fecha',
+                        data: data.map(row => row.count+10),
+                        backgroundColor: ["green"],
+                        borderColor: ['#000000'] 
                     }
                     ]
                 }
