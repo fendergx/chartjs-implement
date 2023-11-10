@@ -16,11 +16,13 @@
             <br>Libreria adicional:  <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap</a>
         </p>
         <h2>Testing</h2>
+        <div style="width: 800px;"><canvas id="desing"></canvas></div><hr>
         <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
          <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
          <br><hr><h2>Chart TEST</h2>
          <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
           <div style="width: 800px;"><canvas id="testing"></canvas></div>
+
 </div>
     <!-- footer-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -31,6 +33,7 @@
             console.log("Hello World!");
             ChartX();
             ChartNew();
+            ChartDesing();
         });
 
         function ChartX(){
@@ -95,6 +98,45 @@
                         //ackgroundColor: ["#000000"], 
                     }
                     ]
+                }
+                }
+            );
+        } //end ChartNew
+
+
+        function ChartDesing(){
+            const data = [
+                { label: 'Electivas para Hospitalización', count: parseFloat("118.68978805395").toFixed(0) },
+                { label: 'Electivas Ambulatorias', count: parseFloat(" 96.567164179104").toFixed(0) },
+                { label: 'De Emergencia para Hospitalización', count: parseFloat("105.86353944563").toFixed(0)},
+                { label: 'De Emergencia Ambulatoria', count: parseFloat("134.86842105263").toFixed(0) },
+            ];
+            new Chart(
+                document.getElementById('desing'),
+                {
+                type: 'bar',
+                data: {
+                    labels: data.map(row => row.label),
+                    datasets: [
+                    {
+                        label: 'Actividades hospitalarias',
+                        data: data.map(row => row.count),
+                        //seleccion de colores para barras
+                        backgroundColor: ['#76ACFF','#76C368','#FF754C','#FFF678'],
+                        //seleccion de configuracion de bordes
+                        borderColor: ['gray'],
+                        borderWidth: 1.5,
+                        borderRadius: 5,
+                    }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                        display: true,
+                        text: 'Porcentaje de cumplimiento de metas programadas de servicios finales'
+                        }
+                    },
                 }
                 }
             );
