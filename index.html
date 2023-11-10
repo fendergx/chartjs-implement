@@ -63,7 +63,7 @@
 
         function ChartNew(){
             const data = [
-                { label: 'Electivas para Hospitalización', count: 116 },
+                { label: 'Electivas para Hospitalización', count: '116.00' },
                 { label: 'Electivas Ambulatorias', count: 93 },
                 { label: 'De Emergencia para Hospitalización', count: 103},
                 { label: 'AbrDe Emergencia Ambulatoriail', count: 131 },
@@ -78,6 +78,7 @@
                     {
                         label: 'Porcentaje de cumplimiento de metas programadas de servicios finales',
                         data: data.map(row => row.count),
+                        backgroundColor: ['#76ACFF','#76C368','#FF754C']
                         //ackgroundColor: ["#000000"], 
                     }
                     ]
